@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Jaimon A A",
   role: "MERN Stack Developer",
   tagline: "I build apps from the screen to the server.",
-  subtagline: "Jaimon A A, a MERN stack developer.",
+  subtagline: "Jaimon A A, MERN stack developer.",
   projectsSubtitle: "Full-stack and frontend applications I designed, built, and deployed.",
   contactSub: "I’m open to full-stack developer roles. Find me here.",
   footerText: "Designed and built by Jaimon A A with React."
