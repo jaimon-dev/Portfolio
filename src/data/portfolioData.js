@@ -97,23 +97,23 @@ export const projects = [
       "Interactive 3-tier architecture visualization with animated flow wires and filterable project grid."
     ],
     tags: ["React.js", "Vite", "CSS3", "JavaScript"],
-    repo: "https://github.com/jaimon-dev",
+    repo: "https://github.com/jaimon-dev/Portfolio",
     demo: null,
     featured: false
   },
   {
     id: "rest-api-backend",
-    name: "Task & User Management API",
+    name: "User Management System",
     category: "Backend",
-    kind: "Scalable RESTful microservice backend",
+    kind: "Developed a user management system using TypeScript",
     when: "Backend project",
     points: [
-      "RESTful API service with complete CRUD operations, pagination, and sorting.",
-      "JWT authentication, password hashing with bcrypt, and input validation middlewares.",
-      "MongoDB database modeling with Mongoose schemas and automated error handling."
+      "Developed a user management system using TypeScript, Node.js, Express.js, and MongoDB.",
+      "Implemented user authentication and session management using Express Session.",
+      "Created dynamic server-rendered interfaces using EJS and Mongoose."
     ],
-    tags: ["Node.js", "Express.js", "MongoDB", "REST APIs"],
-    repo: "https://github.com/jaimon-dev",
+    tags: ["Node.js", "Express.js", "MongoDB", 'ejs'],
+    repo: "https://github.com/jaimon-dev/UserManagement-Typescript",
     demo: null,
     featured: false
   }
