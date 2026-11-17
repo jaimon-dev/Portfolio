@@ -83,7 +83,7 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
   return (
     <section id="projects">
       <div className="section-head-row">
-        <div>
+        <div className="section-head-title">
           <SectionHeader
             title="Projects"
             subtitle={`Showing ${filteredProjects.length} of ${projects.length} application${
@@ -92,7 +92,7 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
           />
         </div>
 
-        {/* View Mode Switcher */}
+        {/* View Mode Switcher (Visible on desktop & tablets, hidden on phones) */}
         <div className="view-toggle" role="group" aria-label="Project view mode">
           <button
             type="button"
@@ -117,27 +117,29 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
 
       {/* Filter and Search Controls */}
       <div className="project-controls">
-        <div className="tabs project-tabs" role="tablist" aria-label="Project categories">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              role="tab"
-              className="tab"
-              aria-selected={activeCategory === cat}
-              onClick={() => setActiveCategory(cat)}
-            >
-              <span>{cat}</span>
-              <span className="count-pill">{getCategoryCount(cat)}</span>
-            </button>
-          ))}
+        <div className="project-tabs-container">
+          <div className="tabs project-tabs" role="tablist" aria-label="Project categories">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                role="tab"
+                className="tab"
+                aria-selected={activeCategory === cat}
+                onClick={() => setActiveCategory(cat)}
+              >
+                <span>{cat}</span>
+                <span className="count-pill">{getCategoryCount(cat)}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="search-wrap">
           <input
             type="search"
             className="search-input"
-            placeholder="Search by tech (e.g. React, AWS, MongoDB)..."
+            placeholder="Search tech (React, AWS, MongoDB)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="Search projects by technology or keyword"

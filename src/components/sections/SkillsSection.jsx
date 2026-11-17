@@ -28,19 +28,21 @@ export default function SkillsSection({
         subtitle="Every app has layers. These are the tools I use in each one. Tap a skill to filter matching projects."
       />
 
-      <div className="tabs" role="tablist" aria-label="Skill layers">
-        {layers.map((layer) => (
-          <button
-            key={layer.id}
-            type="button"
-            role="tab"
-            className="tab"
-            aria-selected={activeLayer === layer.id}
-            onClick={() => onSelectLayer(layer.id)}
-          >
-            {layer.title}
-          </button>
-        ))}
+      <div className="tabs-container">
+        <div className="tabs" role="tablist" aria-label="Skill layers">
+          {layers.map((layer) => (
+            <button
+              key={layer.id}
+              type="button"
+              role="tab"
+              className="tab"
+              aria-selected={activeLayer === layer.id}
+              onClick={() => onSelectLayer(layer.id)}
+            >
+              {layer.title}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="chips" role="tabpanel" aria-label={`${currentLayer.title} skills`}>
