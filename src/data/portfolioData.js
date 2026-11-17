@@ -128,41 +128,10 @@ export const projects = [
   }
 ];
 
-export const freelanceProjects = [
-  {
-    id: "client-landing-page",
-    name: "Responsive Business Landing Page",
-    badge: "Freelance Project",
-    summary: "A modern, high-converting landing page built for a client business using React.js and CSS3.",
-    highlights: [
-      "Created a mobile-first responsive design featuring animated hero section, testimonials, and service showcases.",
-      "Integrated client inquiry contact forms with instant client-side validation.",
-      "Optimized asset loading, achieving sub-second load times and 95+ performance scores."
-    ],
-    tags: ["React.js", "CSS3", "Responsive UI", "SEO"]
-  },
-  {
-    id: "react-mini-projects",
-    name: "Interactive React Mini-Apps Suite",
-    badge: "Personal Project",
-    summary: "A collection of practical interactive mini-projects developed with React.js to explore state management and external API integrations.",
-    highlights: [
-      "Live Weather App: Fetches real-time weather and 5-day forecasts via OpenWeather REST API.",
-      "Expense & Budget Tracker: Manages income/expense entries with dynamic balance calculation and localStorage persistence.",
-      "Smart Task Manager: Features task prioritization, active filtering, and responsive completion toggling."
-    ],
-    tags: ["React.js", "JavaScript", "REST APIs", "Local Storage"]
-  },
-  {
-    id: "ecommerce-storefront-ui",
-    name: "Modern E-Commerce Storefront UI",
-    badge: "Personal Project",
-    summary: "A sleek frontend storefront for browsing and purchasing products built with React.",
-    highlights: [
-      "Dynamic catalog with multi-category filtering, live search, and sorting by price/rating.",
-      "Full shopping cart state with quantity adjustments, promo code calculation, and responsive checkout drawer.",
-      "Designed with custom CSS variables supporting dark and light viewing modes."
-    ],
-    tags: ["React.js", "E-Commerce", "State Management", "UI/UX"]
-  }
-];
+export const freelanceExperience = {
+  title: "FREELANCE / PERSONAL PROJECTS",
+  role: "Full Stack Developer",
+  description:
+    "Developed multiple personal projects using React.js to strengthen frontend development skills and build practical experience. Focused on creating responsive user interfaces, reusable components, efficient state management, and improving overall user experience while continuously exploring modern web development technologies.",
+  tags: ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"]
+};
