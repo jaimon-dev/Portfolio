@@ -3,21 +3,23 @@ export const personalInfo = {
   role: "MERN Stack Developer",
   tagline: "I build apps from the screen to the server.",
   subtagline: "Jaimon A A, MERN stack developer.",
+  email: "jaimonaraikal@gmail.com",
   projectsSubtitle: "Full-stack and frontend applications I designed, built, and deployed.",
-  contactSub: "I’m open to full-stack developer roles. Find me here.",
+  contactSub: "I’m open to full-stack developer roles, freelance opportunities, and collaborative projects. Reach out directly via email or find me on my profiles.",
   footerText: "Designed and built by Jaimon A A with React."
 };
 
 export const socialLinks = {
   github: "https://github.com/jaimon-dev",
   linkedin: "https://www.linkedin.com/in/jaimon-dev",
-  leetcode: "https://leetcode.com/u/jaimon1023/"
+  leetcode: "https://leetcode.com/u/jaimon1023/",
+  email: "mailto:jaimonaraikal@gmail.com"
 };
 
 export const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "LeetCode", href: socialLinks.leetcode, external: true },
+  { label: "Freelance", href: "#freelance" },
   { label: "Contact", href: "#contact" }
 ];
 
@@ -43,9 +45,16 @@ export const layers = [
   },
   {
     id: "tools",
-    title: "Tools",
+    title: "Tools & Emerging Tech",
     where: "How I work",
-    skills: ["Git", "GitHub", "LeetCode (DSA)", "Problem Solving", "Data Structures & Algorithms"]
+    skills: [
+      "Agentic AI",
+      "Git",
+      "GitHub",
+      "LeetCode (DSA)",
+      "Problem Solving",
+      "Data Structures & Algorithms"
+    ]
   }
 ];
 
@@ -112,9 +121,48 @@ export const projects = [
       "Implemented user authentication and session management using Express Session.",
       "Created dynamic server-rendered interfaces using EJS and Mongoose."
     ],
-    tags: ["Node.js", "Express.js", "MongoDB", 'ejs'],
+    tags: ["Node.js", "Express.js", "MongoDB", "ejs"],
     repo: "https://github.com/jaimon-dev/UserManagement-Typescript",
     demo: null,
     featured: false
+  }
+];
+
+export const freelanceProjects = [
+  {
+    id: "client-landing-page",
+    name: "Responsive Business Landing Page",
+    badge: "Freelance Project",
+    summary: "A modern, high-converting landing page built for a client business using React.js and CSS3.",
+    highlights: [
+      "Created a mobile-first responsive design featuring animated hero section, testimonials, and service showcases.",
+      "Integrated client inquiry contact forms with instant client-side validation.",
+      "Optimized asset loading, achieving sub-second load times and 95+ performance scores."
+    ],
+    tags: ["React.js", "CSS3", "Responsive UI", "SEO"]
+  },
+  {
+    id: "react-mini-projects",
+    name: "Interactive React Mini-Apps Suite",
+    badge: "Personal Project",
+    summary: "A collection of practical interactive mini-projects developed with React.js to explore state management and external API integrations.",
+    highlights: [
+      "Live Weather App: Fetches real-time weather and 5-day forecasts via OpenWeather REST API.",
+      "Expense & Budget Tracker: Manages income/expense entries with dynamic balance calculation and localStorage persistence.",
+      "Smart Task Manager: Features task prioritization, active filtering, and responsive completion toggling."
+    ],
+    tags: ["React.js", "JavaScript", "REST APIs", "Local Storage"]
+  },
+  {
+    id: "ecommerce-storefront-ui",
+    name: "Modern E-Commerce Storefront UI",
+    badge: "Personal Project",
+    summary: "A sleek frontend storefront for browsing and purchasing products built with React.",
+    highlights: [
+      "Dynamic catalog with multi-category filtering, live search, and sorting by price/rating.",
+      "Full shopping cart state with quantity adjustments, promo code calculation, and responsive checkout drawer.",
+      "Designed with custom CSS variables supporting dark and light viewing modes."
+    ],
+    tags: ["React.js", "E-Commerce", "State Management", "UI/UX"]
   }
 ];

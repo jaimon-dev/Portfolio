@@ -3,7 +3,11 @@ import SectionHeader from '../common/SectionHeader';
 import Button from '../common/Button';
 import { projects } from '../../data/portfolioData';
 
-export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) {
+export default function ProjectsSection({ selectedSkillTag: propTag, onSelectSkillTag: propOnSelect }) {
+  const [internalTag, setInternalTag] = useState(null);
+  const activeTag = propTag !== undefined ? propTag : internalTag;
+  const setTag = propOnSelect || setInternalTag;
+
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'detailed'
@@ -28,21 +32,21 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
       }
 
       // Skill / Tag filter (case-insensitive substring or exact match)
-      if (selectedSkillTag) {
+      if (activeTag) {
         const hasTag = project.tags.some(
           (t) =>
-            t.toLowerCase() === selectedSkillTag.toLowerCase() ||
-            selectedSkillTag.toLowerCase().includes(t.toLowerCase()) ||
-            t.toLowerCase().includes(selectedSkillTag.toLowerCase())
+            t.toLowerCase() === activeTag.toLowerCase() ||
+            activeTag.toLowerCase().includes(t.toLowerCase()) ||
+            t.toLowerCase().includes(activeTag.toLowerCase())
         );
         const matchesName = project.name
           .toLowerCase()
-          .includes(selectedSkillTag.toLowerCase());
+          .includes(activeTag.toLowerCase());
         const matchesKind = project.kind
           .toLowerCase()
-          .includes(selectedSkillTag.toLowerCase());
+          .includes(activeTag.toLowerCase());
         const matchesPoints = project.points.some((pt) =>
-          pt.toLowerCase().includes(selectedSkillTag.toLowerCase())
+          pt.toLowerCase().includes(activeTag.toLowerCase())
         );
 
         if (!hasTag && !matchesName && !matchesKind && !matchesPoints) {
@@ -72,7 +76,7 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
   const clearAllFilters = () => {
     setActiveCategory('All');
     setSearchQuery('');
-    if (onSelectSkillTag) onSelectSkillTag(null);
+    setTag(null);
   };
 
   const getCategoryCount = (cat) => {
@@ -148,7 +152,7 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
       </div>
 
       {/* Active Filter Notice */}
-      {(selectedSkillTag || searchQuery.trim() || activeCategory !== 'All') && (
+      {(activeTag || searchQuery.trim() || activeCategory !== 'All') && (
         <div className="active-filter-bar">
           <div className="active-filter-text">
             <span>Filtering by:</span>
@@ -157,9 +161,9 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
                 Category: <strong>{activeCategory}</strong>
               </span>
             )}
-            {selectedSkillTag && (
+            {activeTag && (
               <span className="filter-badge">
-                Skill: <strong>{selectedSkillTag}</strong>
+                Skill / Tag: <strong>{activeTag}</strong>
               </span>
             )}
             {searchQuery.trim() && (
@@ -208,11 +212,11 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
                       key={tag}
                       type="button"
                       className={`tag tag-interactive ${
-                        selectedSkillTag?.toLowerCase() === tag.toLowerCase()
+                        activeTag?.toLowerCase() === tag.toLowerCase()
                           ? 'tag-active'
                           : ''
                       }`}
-                      onClick={() => onSelectSkillTag && onSelectSkillTag(tag)}
+                      onClick={() => setTag(activeTag === tag ? null : tag)}
                       title={`Filter projects with ${tag}`}
                     >
                       {tag}
@@ -257,11 +261,11 @@ export default function ProjectsSection({ selectedSkillTag, onSelectSkillTag }) 
                       key={tag}
                       type="button"
                       className={`tag tag-interactive ${
-                        selectedSkillTag?.toLowerCase() === tag.toLowerCase()
+                        activeTag?.toLowerCase() === tag.toLowerCase()
                           ? 'tag-active'
                           : ''
                       }`}
-                      onClick={() => onSelectSkillTag && onSelectSkillTag(tag)}
+                      onClick={() => setTag(activeTag === tag ? null : tag)}
                       title={`Filter projects with ${tag}`}
                     >
                       {tag}

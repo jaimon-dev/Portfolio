@@ -88,38 +88,52 @@ a {
 /* ==========================================================================
    Layout Containers
    ========================================================================== */
+.portfolio-app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .wrap {
+  width: 100%;
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 24px;
+  flex: 1;
 }
 
 /* ==========================================================================
-   Navigation Bar (Desktop + Responsive Mobile Drawer)
+   Full-Width Sticky Header & Navbar
    ========================================================================== */
-.site-nav {
+.site-header {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
   border-bottom: 1px solid var(--line);
-  margin-bottom: 10px;
+}
+
+.site-nav {
+  width: 100%;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1080px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 16px 28px;
+  width: 100%;
 }
 
 .logo {
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-decoration: none;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -127,7 +141,7 @@ a {
 
 .desktop-links {
   display: flex;
-  gap: 22px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -146,7 +160,7 @@ a {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .themebtn {
@@ -171,13 +185,13 @@ a {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   border: 1px solid var(--line);
   background: var(--panel);
   color: var(--ink);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   cursor: pointer;
   transition: border-color 0.15s;
 }
@@ -186,11 +200,11 @@ a {
   border-color: var(--accent);
 }
 
-/* Mobile Drawer Overlay & Content */
+/* Mobile Drawer */
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 200;
@@ -231,8 +245,8 @@ a {
   background: var(--panel);
   border: 1px solid var(--line);
   color: var(--ink);
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -552,7 +566,7 @@ h2 {
   color: var(--accent);
 }
 
-/* Skills Chips */
+/* Skills Chips (Static badges) */
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -568,50 +582,9 @@ h2 {
   font-weight: 600;
   background: var(--panel);
   color: var(--ink);
-}
-
-.chip-clickable {
-  font: inherit;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  border: 2px solid var(--soft);
-  border-radius: 6px;
-  padding: 10px 16px;
-  font-weight: 600;
-  background: var(--panel);
-  color: var(--ink);
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.chip-clickable:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 2px 2px 0 var(--accent);
-}
-
-.chip-hint {
-  font-size: 0.85rem;
-  color: var(--soft);
-  opacity: 0.7;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-}
-
-.chip-clickable:hover .chip-hint {
-  transform: translate(2px, -2px);
-  opacity: 1;
-  color: var(--accent);
-}
-
-.chip-clickable.chip-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-ink);
-}
-
-.chip-clickable.chip-active .chip-hint {
-  color: var(--accent-ink);
+  user-select: none;
 }
 
 /* ==========================================================================
@@ -629,7 +602,7 @@ h2 {
   flex: 1;
 }
 
-/* View Mode Switcher (Grid vs Detailed) */
+/* View Mode Switcher */
 .view-toggle {
   display: inline-flex;
   background: var(--panel);
@@ -664,7 +637,7 @@ h2 {
   color: var(--accent-ink);
 }
 
-/* Project Controls: Tabs and Search Input */
+/* Project Controls */
 .project-controls {
   display: flex;
   justify-content: space-between;
@@ -711,7 +684,7 @@ h2 {
   box-shadow: 0 0 0 3px rgba(255, 122, 61, 0.2);
 }
 
-/* Active Filter Notification Bar */
+/* Active Filter Notice */
 .active-filter-bar {
   display: flex;
   align-items: center;
@@ -760,9 +733,7 @@ h2 {
   color: var(--accent-ink);
 }
 
-/* ==========================================================================
-   Responsive Projects Grid
-   ========================================================================== */
+/* Responsive Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -868,9 +839,7 @@ h2 {
   font-size: 0.9rem;
 }
 
-/* ==========================================================================
-   Detailed Projects List View
-   ========================================================================== */
+/* Detailed Projects List View */
 .projects-detailed-list {
   display: flex;
   flex-direction: column;
@@ -977,37 +946,258 @@ h2 {
 }
 
 /* ==========================================================================
-   Empty State
+   Freelance & Personal Projects Section
    ========================================================================== */
-.no-projects-found {
-  text-align: center;
-  padding: 48px 24px;
-  background: var(--panel);
-  border: 2px dashed var(--line);
-  border-radius: 10px;
-  margin: 20px 0;
+.freelance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 24px;
 }
 
-.no-projects-found p {
+.freelance-card {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.freelance-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--soft);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.freelance-card-header {
+  margin-bottom: 12px;
+}
+
+.freelance-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.freelance-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.freelance-summary {
   color: var(--soft);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.freelance-highlights {
+  padding-left: 1.2em;
+  margin: 0 0 20px;
+  font-size: 0.92rem;
+  color: var(--soft);
+}
+
+.freelance-highlights li {
+  margin-bottom: 8px;
+}
+
+.freelance-highlights li::marker {
+  color: var(--accent);
 }
 
 /* ==========================================================================
-   Contact Section & Footer
+   Contact Section & Email Card
    ========================================================================== */
+.contact-email-card {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-email-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.email-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.email-label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.email-address {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.15s ease;
+}
+
+.email-address:hover {
+  color: var(--accent);
+}
+
+.email-card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.email-copy-btn {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--soft);
+}
+
+.email-copy-btn:hover {
+  border-color: var(--ink);
+}
+
+.contact-profiles-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profiles-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--soft);
+}
+
 .contact {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
 }
 
-footer {
-  padding: 32px 0 44px;
-  color: var(--soft);
-  font-size: 0.9rem;
+/* ==========================================================================
+   Full-Width Footer
+   ========================================================================== */
+.site-footer {
+  width: 100%;
   border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 40%, var(--bg));
+  padding: 48px 0 32px;
+  margin-top: 56px;
+}
+
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.footer-brand {
+  max-width: 44ch;
+}
+
+.footer-logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  color: var(--soft);
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+  display: block;
+  letter-spacing: -0.01em;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: var(--soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.88rem;
+}
+
+.footer-back-to-top {
+  color: var(--soft);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.footer-back-to-top:hover {
+  color: var(--ink);
 }
 
 /* ==========================================================================
@@ -1022,6 +1212,10 @@ footer {
     border-bottom: 2px dashed var(--soft);
     min-height: auto;
   }
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 30px;
+  }
 }
 
 /* ==========================================================================
@@ -1032,7 +1226,7 @@ footer {
     padding: 0 16px;
   }
 
-  /* Navigation on Mobile */
+  /* Full-width Nav on Mobile */
   .desktop-links {
     display: none;
   }
@@ -1188,9 +1382,8 @@ footer {
     min-height: 50px;
   }
 
-  .chip,
-  .chip-clickable {
-    padding: 8px 13px;
+  .chip {
+    padding: 8px 14px;
     font-size: 0.88rem;
   }
 
@@ -1200,7 +1393,6 @@ footer {
     gap: 8px;
   }
 
-  /* Hide Desktop View Switcher on Phone (grid and detailed are both 1 col on mobile) */
   .view-toggle {
     display: none;
   }
@@ -1294,7 +1486,56 @@ footer {
     font-size: 0.88rem;
   }
 
+  /* Freelance Grid on Mobile */
+  .freelance-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .freelance-card {
+    padding: 18px 16px;
+    border-radius: 8px;
+  }
+
+  .freelance-title {
+    font-size: 1.25rem;
+  }
+
+  .freelance-summary {
+    font-size: 0.88rem;
+  }
+
+  .freelance-highlights {
+    font-size: 0.86rem;
+  }
+
   /* Contact Section on Mobile */
+  .contact-email-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 16px;
+    gap: 16px;
+  }
+
+  .email-address {
+    font-size: 1.1rem;
+  }
+
+  .email-card-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .email-card-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 0.88rem;
+  }
+
   .contact {
     flex-direction: column;
     gap: 10px;
@@ -1308,9 +1549,25 @@ footer {
     padding: 12px;
   }
 
-  footer {
-    padding: 24px 0 36px;
-    font-size: 0.85rem;
+  /* Footer on Mobile */
+  .site-footer {
+    padding: 36px 0 24px;
+    margin-top: 36px;
+  }
+
+  .footer-container {
+    padding: 0 16px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
     text-align: center;
+    gap: 10px;
   }
 }

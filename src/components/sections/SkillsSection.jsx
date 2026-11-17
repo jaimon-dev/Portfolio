@@ -2,30 +2,14 @@ import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { layers } from '../../data/portfolioData';
 
-export default function SkillsSection({
-  activeLayer,
-  onSelectLayer,
-  selectedSkillTag,
-  onSelectSkillTag
-}) {
+export default function SkillsSection({ activeLayer, onSelectLayer }) {
   const currentLayer = layers.find((l) => l.id === activeLayer) || layers[0];
-
-  const handleSkillClick = (skill) => {
-    if (onSelectSkillTag) {
-      onSelectSkillTag(skill);
-      // Smooth scroll to projects section to see matching projects
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        projectsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   return (
     <section id="skills">
       <SectionHeader
         title="Skills"
-        subtitle="Every app has layers. These are the tools I use in each one. Tap a skill to filter matching projects."
+        subtitle="Every app has layers. These are the tools and technologies I use across each layer."
       />
 
       <div className="tabs-container">
@@ -46,23 +30,11 @@ export default function SkillsSection({
       </div>
 
       <div className="chips" role="tabpanel" aria-label={`${currentLayer.title} skills`}>
-        {currentLayer.skills.map((skill) => {
-          const isSelected = selectedSkillTag === skill;
-          return (
-            <button
-              key={skill}
-              type="button"
-              className={`chip chip-clickable ${isSelected ? 'chip-active' : ''}`}
-              onClick={() => handleSkillClick(skill)}
-              title={`Click to view projects using ${skill}`}
-            >
-              <span>{skill}</span>
-              <span className="chip-hint" aria-hidden="true">
-                ↗
-              </span>
-            </button>
-          );
-        })}
+        {currentLayer.skills.map((skill) => (
+          <span className="chip" key={skill}>
+            {skill}
+          </span>
+        ))}
       </div>
     </section>
   );
