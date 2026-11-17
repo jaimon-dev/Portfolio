@@ -2,13 +2,15 @@ import React from 'react';
 import { freelanceExperience } from '../../data/portfolioData';
 
 export default function FreelanceSection() {
-  const { title, role, description, tags } = freelanceExperience;
+  const { subheading, title, role, description, tags } = freelanceExperience;
 
   return (
-    <section id="freelance" className="freelance-section">
+    <section id="freelance" className="freelance-section" aria-label="Experience">
+      <div id="experience" className="section-anchor-shim" aria-hidden="true" />
       <div className="freelance-split-card">
-        {/* Left Column: Title */}
+        {/* Left Column: Subheading & Title */}
         <div className="freelance-left">
+          {subheading && <span className="freelance-subheading">{subheading}</span>}
           <h2 className="freelance-main-title">{title}</h2>
         </div>
 

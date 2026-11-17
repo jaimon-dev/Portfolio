@@ -969,9 +969,27 @@ h2 {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
 }
 
+.section-anchor-shim {
+  position: relative;
+  top: -80px;
+  visibility: hidden;
+  height: 0;
+  pointer-events: none;
+}
+
 .freelance-left {
   display: flex;
   flex-direction: column;
+}
+
+.freelance-subheading {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
 }
 
 .freelance-main-title {
@@ -1521,6 +1539,12 @@ h2 {
     grid-template-columns: 1fr;
     gap: 22px;
     padding: 24px 18px;
+  }
+
+  .freelance-subheading {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
   }
 
   .freelance-main-title {

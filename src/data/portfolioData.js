@@ -19,7 +19,7 @@ export const socialLinks = {
 export const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Freelance", href: "#freelance" },
+  { label: "Experience", href: "#freelance" },
   { label: "Contact", href: "#contact" }
 ];
 
@@ -129,6 +129,7 @@ export const projects = [
 ];
 
 export const freelanceExperience = {
+  subheading: "Experience",
   title: "FREELANCE / PERSONAL PROJECTS",
   role: "Full Stack Developer",
   description:
