@@ -71,7 +71,7 @@ export default function ProjectsSection({ selectedSkillTag: propTag, onSelectSki
 
       return true;
     });
-  }, [activeCategory, selectedSkillTag, searchQuery]);
+  }, [activeCategory, activeTag, searchQuery]);
 
   const clearAllFilters = () => {
     setActiveCategory('All');
